@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(217, 114, 66);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;      
+        }
+        #demo1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 30px;
+            color: white;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div>
+    <h1>BMI calculator</h1>
+    </div>
+    <br>
+    <form  method="post">
+  <input type="number" id="height" placeholder="Enter YOur height in meter"> <br>
+  <br>
+  <input type="number" id="weight" placeholder="Enter Your weight in kg">
+  <br>
+  <br>
+  <button type="button" onclick="bmicalculation()">Calculate BMI</button>
+    </form>
+    <br>
+    <p id="demo1"></p>
+    <script>5
+        
+    function bmicalculation() {
+      var weight = parseFloat(document.getElementById('weight').value);
+      var height = parseFloat(document.getElementById('height').value);
+      var product = height * height;
+      var bmi = weight / product;
+      document.getElementById('demo1').innerHTML = "BMI: " + bmi ;
+
+      const img1 = document.getElementById("normalweight.jpg");
+      const img2 = document.getElementById("underweight");
+      const img3 = document.getElementById("overweight");
+      const img4 = document.getElementById("obese");
+
+
+      if (bmi < 18.5) {
+        document.getElementById('demo1').innerHTML += "<br> You are underweight." + "<br><img src='underweight.jpeg' alt='Underweight Image' width='200'>";
+      } else if (bmi >= 18.5 && bmi < 24.9) {
+        document.getElementById('demo1').innerHTML += "<br> You have a normal weight." + "<br><img src='normalweight.webp' alt='Normal Weight Image' width='200'>";
+      } else if (bmi >= 25 && bmi < 29.9) {
+        document.getElementById('demo1').innerHTML += "<br> You are overweight." + "<br><img src='overweight.jpg' alt='Overweight Image' width='200'>";
+      } else {
+        document.getElementById('demo1').innerHTML += "<br> You are obese." + "<br><img src='fat.webp' alt='Obese Image' width='200'>";
+      }
+    }
+
+
+    </script>
+     
+
+    
+</body>
+</html>
